@@ -22,7 +22,7 @@ function Page() {
     };
 
     fetchForm();
-  }, [formNumber]); // Fetch whenever formNumber changes
+  }, []); 
 
   return (
     <div className="table-container" role="region" tabIndex="0">
