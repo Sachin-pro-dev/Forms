@@ -4,7 +4,6 @@ import './Page.css'; // Import the CSS file
 
 function Page() {
   const [formData, setFormData] = useState(null);  // State to hold the form data
-  const [formNumber, setFormNumber] = useState('1'); // This can be dynamic
 
   // Fetch data when the component mounts
   useEffect(() => {

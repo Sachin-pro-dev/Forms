@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import './Page.css';
 
 const Page = () => {
   const [formData, setFormData] = useState({
