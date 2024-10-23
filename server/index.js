@@ -7,6 +7,7 @@ const { dbConnection } = require('./database/database');
 const { createRouter } = require('./routes/create'); // Importing the create route
 const { readRouter } = require('./routes/read');
 const { updateRouter } = require('./routes/update');
+const { readallRouter } = require('./routes/readall');
 
 // Load environment variables
 dotenv.config();
@@ -20,6 +21,7 @@ const port = process.env.PORT || 3000;
 // API Routes
 app.use('/api/v1/forms/create', createRouter);
 app.use('/api/v1/forms/read', readRouter);
+app.use('/api/v1/forms/readall', readallRouter);
 app.use('/api/v1/forms/update', updateRouter);
 // app.use('/api/v1/forms/delete');
 
