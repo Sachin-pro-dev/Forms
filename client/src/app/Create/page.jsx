@@ -560,6 +560,8 @@ const Page = () => {
           />
         </div>
 
+        <h3>DETAILS OF EXAMINATION PASSED</h3>
+
         <table>
           <tr className="heading">
             <th>Examination</th>
