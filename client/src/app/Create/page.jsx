@@ -66,6 +66,10 @@ const Page = () => {
     group2_average: "",
     final_group1_month_year: "",
     final_group2_month_year: "",
+    fee_ref_no: "",
+    fee_date: "",
+    fee_bank_branch: "",
+    fee_amount: "",
   });
 
   const [successMessage, setSuccessMessage] = useState(""); // State to show success message
@@ -565,39 +569,7 @@ const Page = () => {
             <th>Average (%)</th>
           </tr>
           <tr>
-            <td>CPT Syllabus Type - Old</td>
-            <td>
-              <input
-                type="text"
-                name="cpt_month_year"
-                value={formData.cpt_month_year}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="cpt_marks"
-                value={formData.cpt_marks}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="cpt_percentage"
-                value={formData.cpt_percentage}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="cpt_average"
-                value={formData.cpt_average}
-                onChange={handleChange}
-              />
-            </td>
+            <td colSpan={5}>CPT Syllabus Type - Old</td>
           </tr>
           <tr>
             <td>CPT/Foundation</td>
@@ -635,39 +607,7 @@ const Page = () => {
             </td>
           </tr>
           <tr>
-            <td>IPCC Syllabus - Old</td>
-            <td>
-              <input
-                type="text"
-                name="ipcc_month_year"
-                value={formData.ipcc_month_year}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="ipcc_marks"
-                value={formData.ipcc_marks}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="ipcc_percentage"
-                value={formData.ipcc_percentage}
-                onChange={handleChange}
-              />
-            </td>
-            <td>
-              <input
-                type="text"
-                name="ipcc_average"
-                value={formData.ipcc_average}
-                onChange={handleChange}
-              />
-            </td>
+            <td colSpan={5}>IPCC Syllabus - Old</td>
           </tr>
           <tr>
             <td>PCC/IPCC (Group-I)</td>
@@ -811,6 +751,54 @@ const Page = () => {
             onChange={handleChange}
           />
         </div>
+
+        <h3>DETAILS OF PAYMENT (APPLICATION PROCESSING FEE)</h3>
+        <table>
+          <tr className="heading">
+            <th>FEES REFERENCE NO.</th>
+            <th>DATED</th>
+            <th>NAME OF BANK AND BRANCH</th>
+            <th>AMOUNT(RS)</th>
+          </tr>
+          <tr>
+          <td>
+              <input
+                type="text"
+                name="final_group2_month_year"
+                value={formData.fee_ref_no}
+                onChange={handleChange}
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                name="final_group2_month_year"
+                value={formData.fee_date}
+                onChange={handleChange}
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                name="final_group2_month_year"
+                value={formData.fee_bank_branch}
+                onChange={handleChange}
+              />
+            </td>
+
+            <td>
+              <input
+                type="text"
+                name="final_group2_month_year"
+                value={formData.fee_amount}
+                onChange={handleChange}
+              />
+            </td>
+          </tr>
+        </table>
+
 
         <h3>Declaration</h3>
         <div className="form-group">

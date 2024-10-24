@@ -51,7 +51,7 @@ p {
 .form-group select,
 .form-group textarea {
   flex: 2 0 250px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -79,6 +79,7 @@ p {
   background-color: #218838;
 }
 
+/* Smaller input fields for mobile devices */
 @media (max-width: 600px) {
   .form-group {
     flex-direction: column;
@@ -87,8 +88,29 @@ p {
   .form-group label {
     padding-bottom: 5px;
   }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    flex: 1 0 auto; /* Allow flexibility for smaller screens */
+    width: 100%; /* Full width for mobile devices */
+    padding: 10px; /* Reduce padding on mobile devices */
+  }
+
+  .container {
+    padding: 10px; /* Reduce padding inside the container */
+  }
+  
+  h2, h3 {
+    font-size: 1.5em; /* Slightly smaller heading for mobile */
+  }
+  
+  input[type="submit"] {
+    padding: 12px; /* Adjust the padding for smaller screens */
+  }
 }
 
+/* Responsive table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -105,4 +127,59 @@ td {
 .heading {
   background-color: #f2f2f2;
   font-weight: bold;
+}
+
+/* Mobile responsive table */
+/* @media (max-width: 600px) {
+  table, th, td {
+    display: block;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid black;
+  }
+
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+} */
+
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  th {
+    display: none;
+  }
 }
