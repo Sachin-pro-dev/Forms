@@ -2,7 +2,6 @@ const express = require('express');
 const { client } = require('../database/database');
 const router = express.Router();
 
-// Assuming form_number is passed as a URL parameter
 router.delete('/:form_number', async (req, res) => {
     const { form_number } = req.params; // Use req.params to get form_number from URL
 
