@@ -830,8 +830,8 @@ const Page = () => {
           </label>
         </div>
 
-        <div className="form-group">
-          <input type="submit" value="Submit Application" />
+         <div className="form-group">
+          <input type="submit" value="Submit Application" onClick={handleSubmit}/>
         </div>
       </form>
     </div>

@@ -118,7 +118,7 @@ body {
 .csscap {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: right;
   background-color: #f5f5f5;
   padding: 10px;
   font-size: 18px;
