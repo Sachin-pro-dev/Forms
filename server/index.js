@@ -4,10 +4,11 @@ const dotenv = require('dotenv');
 const app = express();
 
 const { dbConnection } = require('./database/database');
-const { createRouter } = require('./routes/create'); // Importing the create route
+const { createRouter } = require('./routes/create');
 const { readRouter } = require('./routes/read');
 const { updateRouter } = require('./routes/update');
 const { readallRouter } = require('./routes/readall');
+const { deleteRouter } = require('./routes/delete');
 
 // Load environment variables
 dotenv.config();
@@ -23,7 +24,7 @@ app.use('/api/v1/forms/create', createRouter);
 app.use('/api/v1/forms/read', readRouter);
 app.use('/api/v1/forms/readall', readallRouter);
 app.use('/api/v1/forms/update', updateRouter);
-// app.use('/api/v1/forms/delete');
+app.use('/api/v1/forms/delete',deleteRouter);
 
 // Start the server and connect to the database
 (async () => {
