@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
             return res.status(404).json({ message: 'No form found with the given registration number' });
         }
 
-        res.status(200).json(result.rows[0]); // Return the first matching row
+        res.status(200).json(result.rows); // Return the first matching row
     } catch (error) {
         console.error('Error during form retrieval:', error);
         res.status(500).json({ message: 'Internal server error' });

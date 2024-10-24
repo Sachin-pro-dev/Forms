@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./Page.css"; // Import the CSS file
+import { useRouter } from "next/navigation"; // Corrected import
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -67,6 +68,9 @@ const Page = () => {
     final_group2_month_year: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState(""); // State to show success message
+  const router = useRouter(); // useRouter for navigation
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -78,23 +82,27 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "http://localhost:5500/api/v1/forms/create/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch('http://localhost:5500/api/v1/forms/create/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
       if (!response.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error('Something went wrong!');
       }
+
       const result = await response.json();
-      console.log("Form submitted successfully:", result);
+      console.log('Form submitted successfully:', result);
+
+      // Set success message and redirect after a short delay
+      setSuccessMessage("Form submitted successfully!");
+      setTimeout(() => {
+        router.push('/'); // Redirect to home after 2 seconds
+      }, 2000);
     } catch (error) {
-      console.error("Error submitting the form:", error);
+      console.error('Error submitting the form:', error);
     }
   };
 
@@ -116,17 +124,6 @@ const Page = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="formNo">FORM NO:</label>
-          <input
-            type="text"
-            id="formNo"
-            name="formNo"
-            onChange={handleChange}
-            value={formData.formNo}
-          />
-        </div>
-
-        <div className="form-group">
           <label htmlFor="regDate">REG. DATE:</label>
           <input
             type="date"
@@ -136,6 +133,7 @@ const Page = () => {
             value={formData.reg_date}
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="uidNo">UID NO:</label>
           <input
@@ -832,7 +830,6 @@ const Page = () => {
 
         <div className="form-group">
           <button
-            onClick={handleSubmit}
             type="submit"
             style={{
               backgroundColor: "#007bff",
@@ -849,6 +846,13 @@ const Page = () => {
           </button>
         </div>
       </form>
+
+      {/* Success message */}
+      {successMessage && (
+        <div style={{ marginTop: '20px', color: 'green', fontWeight: 'bold' }}>
+          {successMessage}
+        </div>
+      )}
     </div>
   );
 };
