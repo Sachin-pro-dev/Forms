@@ -26,6 +26,9 @@ function Page() {
     <div className="table-container" role="region" tabIndex="0">
       <table className="data-table">
         <caption>Form Details</caption>
+        <caption className="csscap">
+          List of Forms <button className="create-btn">Create New</button>
+        </caption>
         <thead>
           <tr>
             <th>Form No</th>
