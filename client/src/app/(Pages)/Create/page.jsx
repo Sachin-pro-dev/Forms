@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import "./Page.css"; // Import the CSS file
+import "./page.css"; // Import the CSS file
 import { useRouter } from "next/navigation"; // Corrected import
 
 const Page = () => {
