@@ -830,8 +830,23 @@ const Page = () => {
           </label>
         </div>
 
-         <div className="form-group">
-          <input type="submit" value="Submit Application" onClick={handleSubmit}/>
+        <div className="form-group">
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            style={{
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
+              padding: "10px 20px",
+              borderRadius: "5px",
+              fontSize: "20px",
+              cursor: "pointer",
+              transition: "background-color 0.3s ease",
+            }}
+          >
+            Submit Application
+          </button>
         </div>
       </form>
     </div>
