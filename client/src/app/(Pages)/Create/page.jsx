@@ -86,27 +86,30 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5500/api/v1/forms/create/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://localhost:5500/api/v1/forms/create/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error("Something went wrong!");
       }
 
       const result = await response.json();
-      console.log('Form submitted successfully:', result);
+      console.log("Form submitted successfully:", result);
 
       // Set success message and redirect after a short delay
       setSuccessMessage("Form submitted successfully!");
       setTimeout(() => {
-        router.push('/'); // Redirect to home after 2 seconds
+        router.push("/"); // Redirect to home after 2 seconds
       }, 2000);
     } catch (error) {
-      console.error('Error submitting the form:', error);
+      console.error("Error submitting the form:", error);
     }
   };
 
@@ -287,7 +290,7 @@ const Page = () => {
           />
         </div>
 
-        <h3>Details of Student's Bank</h3>
+        <h3>Details of Student&apos;s Bank</h3>
         <div className="form-group">
           <label htmlFor="bankAccountName">Name in the Bank Account:</label>
           <input
@@ -369,7 +372,7 @@ const Page = () => {
         </div>
         <div className="form-group">
           <label htmlFor="collegeName">
-            Present C.A. Firm's Name / College Name:
+            Present C.A. Firm&apos;s Name / College Name:
           </label>
           <input
             type="text"
@@ -763,7 +766,7 @@ const Page = () => {
             <th>AMOUNT(RS)</th>
           </tr>
           <tr>
-          <td>
+            <td>
               <input
                 type="text"
                 name="final_group2_month_year"
@@ -800,7 +803,6 @@ const Page = () => {
             </td>
           </tr>
         </table>
-
 
         <h3>Declaration</h3>
         <div className="form-group">
@@ -839,7 +841,7 @@ const Page = () => {
 
       {/* Success message */}
       {successMessage && (
-        <div style={{ marginTop: '20px', color: 'green', fontWeight: 'bold' }}>
+        <div style={{ marginTop: "20px", color: "green", fontWeight: "bold" }}>
           {successMessage}
         </div>
       )}

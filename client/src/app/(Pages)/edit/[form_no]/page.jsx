@@ -311,7 +311,7 @@ function EditForm() {
                         />
                     </div>
 
-                    <h3>Details of Student's Bank</h3>
+                    <h3>Details of Student&apos;s Bank</h3>
                     <div className="form-group">
                         <label htmlFor="bankAccountName">Name in the Bank Account:</label>
                         <input
@@ -393,7 +393,7 @@ function EditForm() {
                     </div>
                     <div className="form-group">
                         <label htmlFor="collegeName">
-                            Present C.A. Firm's Name / College Name:
+                            Present C.A. Firm&apos;s Name / College Name:
                         </label>
                         <input
                             type="text"
