@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -82,130 +87,116 @@ p {
   background-color: #218838;
 }
 
-/* Responsive styling for smaller devices */
-@media (max-width: 768px) {
-  .container {
-    padding: 15px; /* Adjust container padding for tablets */
-  }
-
-  .form-group {
-    flex-direction: column; /* Stack label and input */
-    align-items: flex-start; /* Align items to the left */
-  }
-
-  .form-group label {
-    padding-bottom: 5px;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%; /* Full width for mobile devices */
-    padding: 10px;
-  }
-
-  h2, h3 {
-    font-size: 1.6em; /* Adjust heading size for tablets */
-  }
-}
-
-/* Smaller input fields and tighter layout for mobile devices */
 @media (max-width: 480px) {
-  .container {
-    padding: 10px; /* Reduce padding inside the container for mobile */
-  }
-
-  .form-group {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .form-group label {
-    font-size: 0.9em; /* Slightly smaller labels */
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%; /* Full width for mobile devices */
-    padding: 8px; /* Reduced padding for mobile */
-    font-size: 0.9em; /* Smaller font size for inputs */
-  }
-
-  h2, h3 {
-    font-size: 1.4em; /* Slightly smaller heading for mobile */
-  }
-
-  input[type="submit"] {
-    padding: 12px; /* Adjust the padding for smaller screens */
-  }
-}
-
-/* Further reduction for very small devices */
-@media (max-width: 320px) {
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 6px; /* Further reduce padding on very small devices */
-    font-size: 0.8em; /* Reduce font size */
-  }
-
-  h2, h3 {
-    font-size: 1.2em; /* Even smaller heading for very small devices */
-  }
-
-  input[type="submit"] {
+  .table-container {
+    overflow: auto;
+    width: 100%;
     padding: 10px;
-    font-size: 0.9em; /* Smaller submit button */
   }
-}
-
-/* Responsive table */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-
-th,
-td {
-  padding: 10px;
-  border: 1px solid black;
-  text-align: center;
-}
-
-.heading {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-/* Responsive table for mobile */
-@media (max-width: 600px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
     width: 100%;
   }
+}
 
-  tr {
-    margin-bottom: 15px;
-    display: block;
+/* Small Devices (Landscape phones, 481px and up) */
+@media (max-width: 768px) {
+  .table-container {
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
   }
-
-  td {
-    text-align: left;
-    padding-left: 50%;
-    position: relative;
-  }
-
-  td:before {
-    content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    font-weight: bold;
-    text-align: left;
-  }
-
+  .table-container td,
   th {
-    display: none;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
+
+/* Medium Devices (Tablets, 769px and up) */
+@media (max-width: 1024px) {
+  .table-container {
+    overflow: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
+
+/* Large Devices (Desktops, 1025px and up) */
+@media (max-width: 1200px) {
+  .table-container {
+    overflow: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
+
+/* Extra Large Devices (Large desktops, 1201px and up) */
+@media (min-width: 1201px) {
+  .table-container {
+    overflow: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
   }
 }

@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2,
+h3 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+#declaration {
+  margin-right: 10px;
+}
+
+.header-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.form-group label {
+  flex: 1 0 150px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  flex: 2 0 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Ensure inputs take full width */
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.form-group select {
+  height: 40px;
+}
+
+.form-group input[type="submit"] {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.form-group input[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Responsive styling for smaller devices */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px; /* Adjust container padding for tablets */
+  }
+
+  .form-group {
+    flex-direction: column; /* Stack label and input */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .form-group label {
+    padding-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; /* Full width for mobile devices */
+    padding: 10px;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.6em; /* Adjust heading size for tablets */
+  }
+}
+
+/* Smaller input fields and tighter layout for mobile devices */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px; /* Reduce padding inside the container for mobile */
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-group label {
+    font-size: 0.9em; /* Slightly smaller labels */
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; /* Full width for mobile devices */
+    padding: 8px; /* Reduced padding for mobile */
+    font-size: 0.9em; /* Smaller font size for inputs */
+  }
+
+  h2,
+  h3 {
+    font-size: 1.4em; /* Slightly smaller heading for mobile */
+  }
+
+  input[type="submit"] {
+    padding: 12px; /* Adjust the padding for smaller screens */
+  }
+}
+
+/* Further reduction for very small devices */
+@media (max-width: 320px) {
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 6px; /* Further reduce padding on very small devices */
+    font-size: 0.8em; /* Reduce font size */
+  }
+
+  h2,
+  h3 {
+    font-size: 1.2em; /* Even smaller heading for very small devices */
+  }
+
+  input[type="submit"] {
+    padding: 10px;
+    font-size: 0.9em; /* Smaller submit button */
+  }
+}
+
+/* Responsive table */
+/* table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+} */
+/* 
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.heading {
+  background-color: #f2f2f2;
+  font-weight: bold;
+} */
+
+/* Responsive table for mobile */
+@media (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  td {
+    text-align: left;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  th {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 430px;
+    border-radius: 10px;
+    padding: 25px;
+  }
+  .form-group {
+    display: block;
+  }
+  /* .table-1 {
+    max-width: 400px;
+    overflow: scroll;
+    border: 2px solid red;
+    font-size: 10px;
+  } */
+  @media (max-width: 480px) {
+    .table-1, .table-1 thead, .table-1 tbody, .table-1 th, .table-1 td, .table-1 tr {
+      display: block;
+    }
+  
+    .table-1 tr {
+      margin-bottom: 15px;
+    }
+  
+    .table-1 th {
+      display: none; /* Hide headers */
+    }
+  
+    .table-1 td {
+      padding-left: 50%;
+      text-align: left;
+      position: relative;
+    }
+  
+    .table-1 td::before {
+      content: attr(data-label); /* Adds label for each cell */
+      position: absolute;
+      left: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+}
+.table-1 tr {
+  border: 2px solid red;
+}
+
+/* Small Devices (Landscape phones, 481px and up) */
+@media (max-width: 768px) {
+}
+
+/* Medium Devices (Tablets, 769px and up) */
+@media (max-width: 1024px) {
+}
+
+/* Large Devices (Desktops, 1025px and up) */
+@media (max-width: 1200px) {
+}
+
+/* Extra Large Devices (Large desktops, 1201px and up) */
+@media (min-width: 1201px) {
+}
