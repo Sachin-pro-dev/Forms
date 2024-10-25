@@ -85,7 +85,11 @@ function Page() {
           {formData && formData.length > 0 ? (
             formData.map((form) => (
               <tr key={form.form_no}>
-                <td>{form.form_no}</td>
+                <td>
+                  <Link href={`/Print/${form.form_no}`}>
+                    {form.form_no}
+                  </Link>
+                </td>
                 <td>{new Date(form.reg_date).toLocaleDateString()}</td>
                 <td>{form.student_name}</td>
                 <td>

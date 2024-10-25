@@ -2,9 +2,8 @@ const express = require('express');
 const { client } = require('../database/database');
 const router = express.Router();
 
-// Assuming form_number is passed as a URL parameter
 router.put('/:form_number', async (req, res) => {
-    const { form_number } = req.params; // Use req.params to get the form_number from the URL
+    const { form_number } = req.params;
     const {
         reg_date,
         uid_no,
@@ -25,6 +24,7 @@ router.put('/:form_number', async (req, res) => {
         branch,
         account_no,
         ifsc,
+        registration_no,
         articleship_from_to,
         college_name,
         address,
@@ -43,18 +43,10 @@ router.put('/:form_number', async (req, res) => {
         guardian_address,
         guardian_mobile,
         guardian_email,
-        cpt_month_year,
-        cpt_marks,
-        cpt_percentage,
-        cpt_average,
         foundation_month_year,
         foundation_marks,
         foundation_percentage,
         foundation_average,
-        ipcc_month_year,
-        ipcc_marks,
-        ipcc_percentage,
-        ipcc_average,
         group1_month_year,
         group1_marks,
         group1_percentage,
@@ -64,16 +56,18 @@ router.put('/:form_number', async (req, res) => {
         group2_percentage,
         group2_average,
         final_group1_month_year,
-        final_group2_month_year
+        final_group2_month_year,
+        fee_ref_no,
+        fee_date,
+        fee_bank_branch,
+        fee_amount,
+        donor_name,         // New field
+        donor_address,      // New field
+        donor_mobile,       // New field
+        donor_email         // New field
     } = req.body;
 
     try {
-        // Basic validation
-        if (!form_number) {
-            return res.status(400).json({ message: 'Missing required form_number' });
-        }
-
-        // Update query
         const query = `
             UPDATE admission_form SET 
                 reg_date = $1,
@@ -95,64 +89,65 @@ router.put('/:form_number', async (req, res) => {
                 branch = $17,
                 account_no = $18,
                 ifsc = $19,
-                articleship_from_to = $20,
-                college_name = $21,
-                address = $22,
-                office_tel = $23,
-                office_email = $24,
-                pca_name = $25,
-                pca_mobile = $26,
-                pca_email = $27,
-                parent_name = $28,
-                parent_address = $29,
-                parent_mobile = $30,
-                parent_email = $31,
-                occupation = $32,
-                income = $33,
-                guardian_name = $34,
-                guardian_address = $35,
-                guardian_mobile = $36,
-                guardian_email = $37,
-                cpt_month_year = $38,
-                cpt_marks = $39,
-                cpt_percentage = $40,
-                cpt_average = $41,
-                foundation_month_year = $42,
-                foundation_marks = $43,
-                foundation_percentage = $44,
-                foundation_average = $45,
-                ipcc_month_year = $46,
-                ipcc_marks = $47,
-                ipcc_percentage = $48,
-                ipcc_average = $49,
-                group1_month_year = $50,
-                group1_marks = $51,
-                group1_percentage = $52,
-                group1_average = $53,
-                group2_month_year = $54,
-                group2_marks = $55,
-                group2_percentage = $56,
-                group2_average = $57,
-                final_group1_month_year = $58,
-                final_group2_month_year = $59
-            WHERE form_no = $60
+                registration_no = $20,
+                articleship_from_to = $21,
+                college_name = $22,
+                address = $23,
+                office_tel = $24,
+                office_email = $25,
+                pca_name = $26,
+                pca_mobile = $27,
+                pca_email = $28,
+                parent_name = $29,
+                parent_address = $30,
+                parent_mobile = $31,
+                parent_email = $32,
+                occupation = $33,
+                income = $34,
+                guardian_name = $35,
+                guardian_address = $36,
+                guardian_mobile = $37,
+                guardian_email = $38,
+                foundation_month_year = $39,
+                foundation_marks = $40,
+                foundation_percentage = $41,
+                foundation_average = $42,
+                group1_month_year = $43,
+                group1_marks = $44,
+                group1_percentage = $45,
+                group1_average = $46,
+                group2_month_year = $47,
+                group2_marks = $48,
+                group2_percentage = $49,
+                group2_average = $50,
+                final_group1_month_year = $51,
+                final_group2_month_year = $52,
+                fee_ref_no = $53,
+                fee_date = $54,
+                fee_bank_branch = $55,
+                fee_amount = $56,
+                donor_name = $57,          
+                donor_address = $58,      
+                donor_mobile = $59,        
+                donor_email = $60          
+            WHERE form_no = $61
         `;
 
         const values = [
             reg_date, uid_no, room_no, status, student_name, dob, age, gender, blood_group, mobile, email, seat_type,
-            aadhaar, pan, bank_account_name, bank_name, branch, account_no, ifsc, articleship_from_to,
+            aadhaar, pan, bank_account_name, bank_name, branch, account_no, ifsc, registration_no, articleship_from_to,
             college_name, address, office_tel, office_email, pca_name, pca_mobile, pca_email, parent_name, parent_address,
             parent_mobile, parent_email, occupation, income, guardian_name, guardian_address, guardian_mobile, guardian_email,
-            cpt_month_year, cpt_marks, cpt_percentage, cpt_average, foundation_month_year, foundation_marks, foundation_percentage,
-            foundation_average, ipcc_month_year, ipcc_marks, ipcc_percentage, ipcc_average, group1_month_year, group1_marks,
-            group1_percentage, group1_average, group2_month_year, group2_marks, group2_percentage, group2_average,
-            final_group1_month_year, final_group2_month_year,
-            form_number // This is the last value for the WHERE clause
+            foundation_month_year, foundation_marks, foundation_percentage, foundation_average,
+            group1_month_year, group1_marks, group1_percentage, group1_average, group2_month_year,
+            group2_marks, group2_percentage, group2_average, final_group1_month_year, final_group2_month_year,
+            fee_ref_no, fee_date, fee_bank_branch, fee_amount,
+            donor_name, donor_address, donor_mobile, donor_email, // New fields
+            form_number // WHERE clause placeholder
         ];
 
         const result = await client.query(query, values);
 
-        // Check if any record was updated
         if (result.rowCount === 0) {
             return res.status(404).json({ message: 'No form found with the given form number' });
         }

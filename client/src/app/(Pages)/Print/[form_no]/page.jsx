@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Page.css"; // Import the CSS file
-import { useRouter } from "next/navigation"; // Corrected import
+import { useParams } from "next/navigation"; // Corrected import
 
 const Page = () => {
+  const params = useParams(); // Directly use the useParams hook
+  const { form_no } = params; // Get form_no from dynamic route params
   const [formData, setFormData] = useState({
     reg_date: "",
     uid_no: "",
@@ -44,18 +46,10 @@ const Page = () => {
     guardian_address: "",
     guardian_mobile: "",
     guardian_email: "",
-    cpt_month_year: "",
-    cpt_marks: "",
-    cpt_percentage: "",
-    cpt_average: "",
     foundation_month_year: "",
     foundation_marks: "",
     foundation_percentage: "",
     foundation_average: "",
-    ipcc_month_year: "",
-    ipcc_marks: "",
-    ipcc_percentage: "",
-    ipcc_average: "",
     group1_month_year: "",
     group1_marks: "",
     group1_percentage: "",
@@ -70,10 +64,32 @@ const Page = () => {
     fee_date: "",
     fee_bank_branch: "",
     fee_amount: "",
-  });
+    donor_name: "", // Added new field
+    donor_address: "", // Added new field
+    donor_mobile: "", // Added new field
+    donor_email: "" // Added new field
+});
 
-  const [successMessage, setSuccessMessage] = useState(""); // State to show success message
-  const router = useRouter(); // useRouter for navigation
+  useEffect(() => {
+    if (form_no) {
+      const fetchFormDetails = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:5500/api/v1/forms/read/${form_no}`
+          );
+          if (!response.ok) {
+            throw new Error("Failed to fetch form details");
+          }
+          const data = await response.json();
+          setFormData(data); // Populate the form data
+        } catch (error) {
+          console.error("Error fetching form details:", error);
+        }
+      };
+
+      fetchFormDetails();
+    }
+  }, [form_no]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,33 +101,31 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch(
-        "http://localhost:5500/api/v1/forms/create/",
+        `http://localhost:5500/api/v1/forms/update/${form_no}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
         }
       );
+
       if (!response.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error("Failed to update form");
       }
 
-      const result = await response.json();
-      console.log("Form submitted successfully:", result);
-
-      // Set success message and redirect after a short delay
-      setSuccessMessage("Form submitted successfully!");
-      setTimeout(() => {
-        router.push("/"); // Redirect to home after 2 seconds
-      }, 2000);
+      alert("Form updated successfully");
+      router.push("/"); // Redirect back to the list after update
     } catch (error) {
-      console.error("Error submitting the form:", error);
+      console.error("Error updating form:", error);
     }
   };
+
+
 
   return (
     <div className="container">
@@ -133,7 +147,7 @@ const Page = () => {
         <div className="form-group">
           <label htmlFor="regDate">REG. DATE:</label>
           <input
-            type="date"
+            type="text"
             id="regDate"
             name="reg_date"
             onChange={handleChange}
@@ -190,7 +204,7 @@ const Page = () => {
         <div className="form-group">
           <label htmlFor="dob">Date of Birth:</label>
           <input
-            type="date"
+            type="text"
             id="dob"
             name="dob"
             required
@@ -519,49 +533,50 @@ const Page = () => {
         </div>
 
         <h3>Details of Local Guardian</h3>
-        <div className="form-group">
-          <label htmlFor="guardianName">Name of Local Guardian:</label>
-          <input
-            type="text"
-            id="guardianName"
-            name="guardianName"
-            value={formData.guardianName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="guardianAddress">Address:</label>
-          <textarea
-            id="guardianAddress"
-            name="guardianAddress"
-            value={formData.guardianAddress}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="guardianMobile">Mobile No:</label>
-          <input
-            type="tel"
-            id="guardianMobile"
-            name="guardianMobile"
-            value={formData.guardianMobile}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="guardianEmail">Email ID:</label>
-          <input
-            type="email"
-            id="guardianEmail"
-            name="guardianEmail"
-            value={formData.guardianEmail}
-            onChange={handleChange}
-            required
-          />
-        </div>
+<div className="form-group">
+    <label htmlFor="guardian_name">Name of Local Guardian:</label>
+    <input
+        type="text"
+        id="guardian_name" // Updated to match formData
+        name="guardian_name" // Updated to match formData
+        value={formData.guardian_name}
+        onChange={handleChange}
+        required
+    />
+</div>
+<div className="form-group">
+    <label htmlFor="guardian_address">Address:</label>
+    <textarea
+        id="guardian_address" // Updated to match formData
+        name="guardian_address" // Updated to match formData
+        value={formData.guardian_address}
+        onChange={handleChange}
+        required
+    ></textarea>
+</div>
+<div className="form-group">
+    <label htmlFor="guardian_mobile">Mobile No:</label>
+    <input
+        type="tel"
+        id="guardian_mobile" // Updated to match formData
+        name="guardian_mobile" // Updated to match formData
+        value={formData.guardian_mobile}
+        onChange={handleChange}
+        required
+    />
+</div>
+<div className="form-group">
+    <label htmlFor="guardian_email">Email ID:</label>
+    <input
+        type="email"
+        id="guardian_email" // Updated to match formData
+        name="guardian_email" // Updated to match formData
+        value={formData.guardian_email}
+        onChange={handleChange}
+        required
+    />
+</div>
+
 
         <h3>DETAILS OF EXAMINATION PASSED</h3>
 
@@ -717,45 +732,45 @@ const Page = () => {
         </table>
 
         <h3>Recommendation by Any Member of Parmarth / Prominent Person</h3>
-        <div className="form-group">
-          <label htmlFor="donorName">Name of Donor:</label>
-          <input
-            type="text"
-            id="donorName"
-            name="donorName"
-            value={formData.donorName}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="donorAddress">Address of Donor:</label>
-          <textarea
-            id="donorAddress"
-            name="donorAddress"
-            value={formData.donorAddress}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="donorMobile">Mobile No:</label>
-          <input
-            type="tel"
-            id="donorMobile"
-            name="donorMobile"
-            value={formData.donorMobile}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="donorEmail">Email ID:</label>
-          <input
-            type="email"
-            id="donorEmail"
-            name="donorEmail"
-            value={formData.donorEmail}
-            onChange={handleChange}
-          />
-        </div>
+<div className="form-group">
+  <label htmlFor="donor_name">Name of Donor:</label>
+  <input
+    type="text"
+    id="donor_name" // Changed to donor_name
+    name="donor_name" // Kept as donor_name
+    value={formData.donor_name} // Kept as formData.donor_name
+    onChange={handleChange}
+  />
+</div>
+<div className="form-group">
+  <label htmlFor="donor_address">Address of Donor:</label>
+  <textarea
+    id="donor_address" // Changed to donor_address
+    name="donor_address" // Kept as donor_address
+    value={formData.donor_address} // Kept as formData.donor_address
+    onChange={handleChange}
+  ></textarea>
+</div>
+<div className="form-group">
+  <label htmlFor="donor_mobile">Mobile No:</label>
+  <input
+    type="tel"
+    id="donor_mobile" // Changed to donor_mobile
+    name="donor_mobile" // Kept as donor_mobile
+    value={formData.donor_mobile} // Kept as formData.donor_mobile
+    onChange={handleChange}
+  />
+</div>
+<div className="form-group">
+  <label htmlFor="donor_email">Email ID:</label>
+  <input
+    type="email"
+    id="donor_email" // Changed to donor_email
+    name="donor_email" // Kept as donor_email
+    value={formData.donor_email} // Kept as formData.donor_email
+    onChange={handleChange}
+  />
+</div>
 
         <h3>DETAILS OF PAYMENT (APPLICATION PROCESSING FEE)</h3>
         <table>
@@ -920,7 +935,7 @@ const Page = () => {
           </div>
           <div className="form-group">
             <label htmlFor="paymentDate">Dated:</label>
-            <input type="date" id="paymentDate" name="paymentDate" />
+            <input type="text" id="paymentDate" name="paymentDate" />
           </div>
           <div className="form-group">
             <label htmlFor="bankDetails">Name of Bank and Branch:</label>
@@ -951,13 +966,6 @@ const Page = () => {
           </button>
         </div>
       </form>
-
-      {/* Success message */}
-      {successMessage && (
-        <div style={{ marginTop: "20px", color: "green", fontWeight: "bold" }}>
-          {successMessage}
-        </div>
-      )}
     </div>
   );
 };
