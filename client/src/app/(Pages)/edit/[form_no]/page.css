@@ -1,198 +1,204 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 .container {
-    max-width: 1000px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2,
 h3 {
-    text-align: center;
-    color: #333;
-    font-weight: bold;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
 }
 
 p {
-    text-align: center;
-    margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 #declaration {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .header-info {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-group {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 
 .form-group label {
-    flex: 1 0 200px;
-    padding-right: 10px;
-    font-weight: bold;
+  flex: 1 0 200px;
+  padding-right: 10px;
+  font-weight: bold;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    flex: 2 0 250px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  flex: 2 0 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .form-group textarea {
-    resize: vertical;
-    height: 80px;
+  resize: vertical;
+  height: 80px;
 }
 
 .form-group select {
-    height: 40px;
+  height: 40px;
 }
 
 .form-group input[type="submit"] {
-    width: 100%;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 .form-group input[type="submit"]:hover {
-    background-color: #218838;
+  background-color: #218838;
+}
+.table-container{
+
+    background: white;
+
 }
 
-/* Smaller input fields for mobile devices */
-@media (max-width: 600px) {
-    .form-group {
-        flex-direction: column;
-    }
-
-    .form-group label {
-        padding-bottom: 5px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        flex: 1 0 auto;
-        /* Allow flexibility for smaller screens */
-        width: 100%;
-        /* Full width for mobile devices */
-        padding: 10px;
-        /* Reduce padding on mobile devices */
-    }
-
-    .container {
-        padding: 10px;
-        /* Reduce padding inside the container */
-    }
-
-    h2,
-    h3 {
-        font-size: 1.5em;
-        /* Slightly smaller heading for mobile */
-    }
-
-    input[type="submit"] {
-        padding: 12px;
-        /* Adjust the padding for smaller screens */
-    }
-}
-
-/* Responsive table */
-table {
+@media (max-width: 480px) {
+  .table-container {
+    overflow: auto;
+    background: white;
     width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-th,
-td {
     padding: 10px;
-    border: 1px solid black;
-    text-align: center;
-}
-
-.heading {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-/* Mobile responsive table */
-/* @media (max-width: 600px) {
-  table, th, td {
-    display: block;
-    width: 100%;
   }
-  
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid black;
-  }
-
+  .table-container td,
   th {
-    background-color: #f4f4f4;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
   }
-  
-  td:before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
   }
-} */
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
 
-@media (max-width: 600px) {
+/* Small Devices (Landscape phones, 481px and up) */
+@media (max-width: 768px) {
+  .table-container {
+    background: white;
+    width: 100%;
+    overflow: auto;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
 
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
+/* Medium Devices (Tablets, 769px and up) */
+@media (max-width: 1024px) {
+  .table-container {
+    overflow: auto;
+    background: white;
+    width: 100%;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+  }
+}
+
+/* Large Devices (Desktops, 1025px and up) */
+@media (max-width: 1200px) {
+  .table-container {
+    background: white;
+    overflow: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  .table-container td,
+  th {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+  }
+  .table-container input {
+    height: 40px;
+    border-radius: 5px;
+  }
+  .table-container .table-2 {
+    width: 100%;
+}
+}
+
+/* Extra Large Devices (Large desktops, 1201px and up) */
+@media (min-width: 1201px) {
+    .table-container {
+        overflow: auto;
+        background: white;
         width: 100%;
+        padding: 10px;
     }
-
-    tr {
-        margin-bottom: 15px;
-        display: block;
-    }
-
-    td {
-        text-align: left;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        font-weight: bold;
-        text-align: left;
-    }
-
+    .table-container td,
     th {
-        display: none;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid;
+        text-align: center;
+    }
+    .table-container input {
+        height: 40px;
+        border-radius: 5px;
+    }
+    .table-container .table-2 {
+        width: 100%;
     }
 }

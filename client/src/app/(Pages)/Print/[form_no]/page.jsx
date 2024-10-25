@@ -702,7 +702,7 @@ const Page = () => {
         </table>
 
         <h3>Details of CA Final Exam</h3>
-        <table>
+        <table className="table-2">
           <tr className="heading">
             <th>Examination</th>
             <th>Appear In (Month and Year)</th>
