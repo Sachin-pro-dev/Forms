@@ -61,10 +61,10 @@ router.post('/', async (req, res) => {
             fee_date,
             fee_bank_branch,
             fee_amount,
-            donor_name,         // New field
-            donor_address,      // New field
-            donor_mobile,       // New field
-            donor_email         // New field
+            donor_name,          
+            donor_address,      
+            donor_mobile,       
+            donor_email         
         } = req.body;
 
         const query = `
@@ -77,12 +77,12 @@ router.post('/', async (req, res) => {
                 foundation_percentage, foundation_average, group1_month_year, group1_marks, group1_percentage, 
                 group1_average, group2_month_year, group2_marks, group2_percentage, group2_average, 
                 final_group1_month_year, final_group2_month_year, fee_ref_no, fee_date, fee_bank_branch, fee_amount,
-                donor_name, donor_address, donor_mobile, donor_email  // New fields
+                donor_name, donor_address, donor_mobile, donor_email  
             ) VALUES (
                 $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, 
                 $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, 
                 $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56,
-                $57, $58, $59, $60  // New placeholders
+                $57, $58, $59, $60 
             )
         `;
 
@@ -95,7 +95,7 @@ router.post('/', async (req, res) => {
             group1_marks, group1_percentage, group1_average, group2_month_year, group2_marks, group2_percentage, 
             group2_average, final_group1_month_year, final_group2_month_year, fee_ref_no, fee_date, fee_bank_branch, 
             fee_amount,
-            donor_name, donor_address, donor_mobile, donor_email  // New fields
+            donor_name, donor_address, donor_mobile, donor_email 
         ];
 
         await client.query(query, values);
