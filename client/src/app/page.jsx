@@ -72,7 +72,7 @@ function Page() {
       </div>
 
       <table className="data-table">
-        <caption>Form Details</caption> {/* <caption> must be inside <table> */}
+        <caption>Form Details</caption>
         <thead>
           <tr>
             <th>Form No</th>
@@ -86,9 +86,7 @@ function Page() {
             formData.map((form) => (
               <tr key={form.form_no}>
                 <td>
-                  <Link href={`/Print/${form.form_no}`}>
                     {form.form_no}
-                  </Link>
                 </td>
                 <td>{new Date(form.reg_date).toLocaleDateString()}</td>
                 <td>{form.student_name}</td>
@@ -99,6 +97,9 @@ function Page() {
                   <button className="delete-btn" onClick={() => handleDelete(form.form_no)}>
                     Delete
                   </button>
+                  <Link href={`/Print/${form.form_no}`}>
+                    <button className="print-btn">Print</button>
+                  </Link>
                 </td>
               </tr>
             ))

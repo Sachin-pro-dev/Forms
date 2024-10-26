@@ -65,7 +65,7 @@ body {
 
 /* Action button styles */
 .edit-btn,
-.delete-btn {
+.delete-btn, .print-btn {
   padding: 6px 12px;
   margin: 0 5px;
   border: none;
@@ -74,7 +74,7 @@ body {
   cursor: pointer;
 }
 
-.edit-btn {
+.edit-btn, .print-btn {
   background-color: #3498db;
   color: white;
 }
@@ -85,7 +85,7 @@ body {
 }
 
 /* Hover effects for action buttons */
-.edit-btn:hover {
+.edit-btn:hover, .print-btn:hover {
   background-color: #2980b9;
 }
 
@@ -109,7 +109,7 @@ body {
   }
 
   .edit-btn,
-  .delete-btn {
+  .delete-btn, .print-btn {
     padding: 4px 8px;
     font-size: 0.75rem;
   }

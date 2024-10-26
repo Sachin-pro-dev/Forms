@@ -931,19 +931,19 @@ const Page = () => {
           <h3>Details of Payment (Hostel Fee)</h3>
           <div className="form-group">
             <label htmlFor="payOrderNo">Pay Order No:</label>
-            <input type="text" id="payOrderNo" name="payOrderNo" />
+            <input type="text" id="payOrderNo" name="payOrderNo" value={formData.fee_ref_no}/>
           </div>
           <div className="form-group">
             <label htmlFor="paymentDate">Dated:</label>
-            <input type="text" id="paymentDate" name="paymentDate" />
+            <input type="text" id="paymentDate" name="paymentDate" value={formData.reg_date} />
           </div>
           <div className="form-group">
             <label htmlFor="bankDetails">Name of Bank and Branch:</label>
-            <input type="text" id="bankDetails" name="bankDetails" />
+            <input type="text" id="bankDetails" name="bankDetails" value={formData.bank_name} />
           </div>
           <div className="form-group">
             <label htmlFor="feeAmount">Amount (Rs):</label>
-            <input type="number" id="feeAmount" name="feeAmount" />
+            <input type="number" id="feeAmount" name="feeAmount" value={formData.fee_amount}/>
           </div>
         </div>
 
