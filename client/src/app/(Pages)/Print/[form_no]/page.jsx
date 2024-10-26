@@ -819,7 +819,7 @@ const Page = () => {
           </tr>
         </table>
 
-        <h3>Declaration</h3>
+        {/*<h3>Declaration</h3>
         <div className="form-group">
           <label>
             <input
@@ -833,7 +833,7 @@ const Page = () => {
             I declare that the information provided is true and correct to the
             best of my knowledge.
           </label>
-        </div>
+        </div>*/}
 
         {/* Declaration Section */}
         <div className="declaration-section">

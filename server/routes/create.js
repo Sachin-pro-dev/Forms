@@ -61,10 +61,10 @@ router.post('/', async (req, res) => {
             fee_date,
             fee_bank_branch,
             fee_amount,
-            donor_name,         // New field
-            donor_address,      // New field
-            donor_mobile,       // New field
-            donor_email         // New field
+            donor_name,          
+            donor_address,      
+            donor_mobile,       
+            donor_email         
         } = req.body;
 
         const query = `
@@ -95,7 +95,7 @@ router.post('/', async (req, res) => {
             group1_marks, group1_percentage, group1_average, group2_month_year, group2_marks, group2_percentage, 
             group2_average, final_group1_month_year, final_group2_month_year, fee_ref_no, fee_date, fee_bank_branch, 
             fee_amount,
-            donor_name, donor_address, donor_mobile, donor_email  // New fields
+            donor_name, donor_address, donor_mobile, donor_email 
         ];
 
         await client.query(query, values);
