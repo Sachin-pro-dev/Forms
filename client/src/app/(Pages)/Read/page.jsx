@@ -9,7 +9,7 @@ function Page() {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const response = await fetch(`http://localhost:5500/api/v1/forms/readall/`);
+        const response = await fetch(`https://forms-backend-hanl.onrender.com/api/v1/forms/readall/`);
         if (!response.ok) {
           throw new Error('Failed to fetch form data');
         }

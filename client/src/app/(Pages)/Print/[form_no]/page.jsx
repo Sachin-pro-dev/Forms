@@ -75,7 +75,7 @@ const Page = () => {
       const fetchFormDetails = async () => {
         try {
           const response = await fetch(
-            `http://localhost:5500/api/v1/forms/read/${form_no}`
+            `https://forms-backend-hanl.onrender.com/api/v1/forms/read/${form_no}`
           );
           if (!response.ok) {
             throw new Error("Failed to fetch form details");
@@ -104,7 +104,7 @@ const Page = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5500/api/v1/forms/update/${form_no}`,
+        `https://forms-backend-hanl.onrender.com/api/v1/forms/update/${form_no}`,
         {
           method: "PUT",
           headers: {
