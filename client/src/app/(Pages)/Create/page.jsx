@@ -111,17 +111,168 @@ const Page = () => {
 
   return (
     <div className="container">
-      <div className="header-info">
-        <h2>PARMARTH SEVA SAMITI</h2>
-        <p>
-          B-22 Kalyani Kendra, Shiv Vallabh Road, Ashokvan in front of
-          saurashtra Patel hall, Hanuman Tekadi, Borivali East, Mumbai 400066.
+      <div
+        className="header-info"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap", // Ensures responsiveness on smaller screens
+          marginBottom: "20px",
+          padding: "10px",
+          textAlign: "center",
+        }}
+      >
+        <img
+          src="/parmarthlogo.png" // Replace with your actual logo path
+          alt="Parmarth Seva Samiti Logo"
+          style={{
+            width: "100px", // Scales for responsiveness
+            height: "auto",
+            marginRight: "15px",
+          }}
+        />
+        <div>
+          <h2 style={{ color: "#2c3e50", fontSize: "24px", margin: "0" }}>
+            PARMARTH SEVA SAMITI
+          </h2>
+          <p style={{ color: "#34495e", fontSize: "14px", margin: "5px 0" }}>
+            B-22 Kalyani Kendra, Shiv Vallabh Road, Ashokvan in front of
+            Saurashtra Patel Hall, Hanuman Tekadi, Borivali East, Mumbai 400066.
+          </p>
+          <p style={{ color: "#34495e", fontSize: "14px", margin: "5px 0" }}>
+            Email:{" "}
+            <a
+              href="mailto:parmathgirlshostel05@gmail.com"
+              style={{ color: "#2980b9", textDecoration: "none" }}
+            >
+              parmathgirlshostel05@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <div
+        className="admission-info"
+        style={{ fontFamily: "Arial, sans-serif", lineHeight: "1.6" }}
+      >
+        <h3
+          style={{ color: "#16a085", fontSize: "20px", marginBottom: "10px" }}
+        >
+          Required Documents and Payment Details for Admission
+        </h3>
+        <h4 style={{ color: "#e67e22", fontSize: "18px", marginBottom: "8px" }}>
+          Document Requirements
+        </h4>
+        <ul style={{ paddingLeft: "20px", marginBottom: "15px" }}>
+          <li>
+            <strong>Professional Certification Documents</strong>
+            <ul style={{ paddingLeft: "20px" }}>
+              <li>Articleship Registration Documentation</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>Attested/true copy of Articleship Registration Letter</li>
+                <li>Must be attested by Principal</li>
+                <li>If not yet received, submit immediately upon receipt</li>
+              </ul>
+              <li>ICAI Forms</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>
+                  Attested/true copy of Form No. 102 with ICAI acknowledgment
+                </li>
+                <li>
+                  Attested/true copy of Form No. 103 with ICAI acknowledgment
+                </li>
+                <li>
+                  Form No. 109 with ICAI acknowledgment (required only for
+                  articleship transfers)
+                </li>
+              </ul>
+              <li>Professional Practice Documentation</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>
+                  Letter from Chartered Accountant Firm in prescribed format
+                </li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <strong>Personal Documentation</strong>
+            <ul style={{ paddingLeft: "20px" }}>
+              <li>Identity and Age Verification</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>Attested/true copy of Aadhaar Card or PAN Card</li>
+              </ul>
+              <li>Photographs</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>3 recent color photographs</li>
+                <li>Size: 3.5 cm x 2.5 cm</li>
+                <li>Must be submitted in an envelope</li>
+              </ul>
+              <li>Academic Records</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>
+                  Photocopies of mark sheets from all attempted examinations
+                </li>
+                <li>Cancelled cheque from student's personal bank account</li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <strong>Medical Documentation</strong>
+            <ul style={{ paddingLeft: "20px" }}>
+              <li>Health Records</li>
+              <ul style={{ paddingLeft: "20px" }}>
+                <li>
+                  Current medical fitness certificate from practicing doctor
+                </li>
+                <li>Blood group report</li>
+              </ul>
+            </ul>
+          </li>
+        </ul>
+
+        <h4 style={{ color: "#e67e22", fontSize: "18px", marginBottom: "8px" }}>
+          Fee Structure
+        </h4>
+        <ul style={{ paddingLeft: "20px", marginBottom: "15px" }}>
+          <li>
+            <strong>One-Time Payments</strong>
+            <ul style={{ paddingLeft: "20px" }}>
+              <li>Application Processing Fee: ₹1,000 (Non-refundable)</li>
+              <li>
+                Security Deposit: ₹20,000 (Interest-free refundable deposit)
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Regular Payments</strong>
+            <ul style={{ paddingLeft: "20px" }}>
+              <li>Hostel Fees: ₹48,000 (₹8,000 per month for 6 months)</li>
+              <li>Insurance Charges: As applicable</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4 style={{ color: "#e67e22", fontSize: "18px", marginBottom: "8px" }}>
+          Payment Details
+        </h4>
+        <p>Bank Account Information</p>
+        <ul style={{ paddingLeft: "20px", marginBottom: "15px" }}>
+          <li>Account Name: Parmarth Seva Samiti</li>
+          <li>Account Number: 2081234226425555</li>
+          <li>Bank Name: Au Small Finance Bank</li>
+          <li>IFSC Code: AUBL0002342</li>
+          <li>Branch: SV Road, Goregaon West</li>
+        </ul>
+
+        <p style={{ fontSize: "14px", color: "#34495e" }}>
+          For any queries regarding payments or documentation, please contact
+          the admission office of Parmarth Seva Samiti.
         </p>
-        <p>
-          Email:{" "}
-          <a href="mailto:parmathgirlshostel05@gmail.com">
-            parmathgirlshostel05@gmail.com
-          </a>
+        <p style={{ fontSize: "14px", color: "#e74c3c" }}>
+          <strong>Note:</strong> All fees and requirements are subject to
+          change. Please verify current rates and requirements with the
+          institution before making any payments.
         </p>
       </div>
 
