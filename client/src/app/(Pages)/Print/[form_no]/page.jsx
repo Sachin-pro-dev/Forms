@@ -67,8 +67,8 @@ const Page = () => {
     donor_name: "", // Added new field
     donor_address: "", // Added new field
     donor_mobile: "", // Added new field
-    donor_email: "" // Added new field
-});
+    donor_email: "", // Added new field
+  });
 
   useEffect(() => {
     if (form_no) {
@@ -124,9 +124,6 @@ const Page = () => {
       console.error("Error updating form:", error);
     }
   };
-
-
-
   return (
     <div className="container">
       <div className="header-info">
@@ -533,50 +530,49 @@ const Page = () => {
         </div>
 
         <h3>Details of Local Guardian</h3>
-<div className="form-group">
-    <label htmlFor="guardian_name">Name of Local Guardian:</label>
-    <input
-        type="text"
-        id="guardian_name" // Updated to match formData
-        name="guardian_name" // Updated to match formData
-        value={formData.guardian_name}
-        onChange={handleChange}
-        required
-    />
-</div>
-<div className="form-group">
-    <label htmlFor="guardian_address">Address:</label>
-    <textarea
-        id="guardian_address" // Updated to match formData
-        name="guardian_address" // Updated to match formData
-        value={formData.guardian_address}
-        onChange={handleChange}
-        required
-    ></textarea>
-</div>
-<div className="form-group">
-    <label htmlFor="guardian_mobile">Mobile No:</label>
-    <input
-        type="tel"
-        id="guardian_mobile" // Updated to match formData
-        name="guardian_mobile" // Updated to match formData
-        value={formData.guardian_mobile}
-        onChange={handleChange}
-        required
-    />
-</div>
-<div className="form-group">
-    <label htmlFor="guardian_email">Email ID:</label>
-    <input
-        type="email"
-        id="guardian_email" // Updated to match formData
-        name="guardian_email" // Updated to match formData
-        value={formData.guardian_email}
-        onChange={handleChange}
-        required
-    />
-</div>
-
+        <div className="form-group">
+          <label htmlFor="guardian_name">Name of Local Guardian:</label>
+          <input
+            type="text"
+            id="guardian_name" // Updated to match formData
+            name="guardian_name" // Updated to match formData
+            value={formData.guardian_name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="guardian_address">Address:</label>
+          <textarea
+            id="guardian_address" // Updated to match formData
+            name="guardian_address" // Updated to match formData
+            value={formData.guardian_address}
+            onChange={handleChange}
+            required
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="guardian_mobile">Mobile No:</label>
+          <input
+            type="tel"
+            id="guardian_mobile" // Updated to match formData
+            name="guardian_mobile" // Updated to match formData
+            value={formData.guardian_mobile}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="guardian_email">Email ID:</label>
+          <input
+            type="email"
+            id="guardian_email" // Updated to match formData
+            name="guardian_email" // Updated to match formData
+            value={formData.guardian_email}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
         <h3>DETAILS OF EXAMINATION PASSED</h3>
 
@@ -732,45 +728,45 @@ const Page = () => {
         </table>
 
         <h3>Recommendation by Any Member of Parmarth / Prominent Person</h3>
-<div className="form-group">
-  <label htmlFor="donor_name">Name of Donor:</label>
-  <input
-    type="text"
-    id="donor_name" // Changed to donor_name
-    name="donor_name" // Kept as donor_name
-    value={formData.donor_name} // Kept as formData.donor_name
-    onChange={handleChange}
-  />
-</div>
-<div className="form-group">
-  <label htmlFor="donor_address">Address of Donor:</label>
-  <textarea
-    id="donor_address" // Changed to donor_address
-    name="donor_address" // Kept as donor_address
-    value={formData.donor_address} // Kept as formData.donor_address
-    onChange={handleChange}
-  ></textarea>
-</div>
-<div className="form-group">
-  <label htmlFor="donor_mobile">Mobile No:</label>
-  <input
-    type="tel"
-    id="donor_mobile" // Changed to donor_mobile
-    name="donor_mobile" // Kept as donor_mobile
-    value={formData.donor_mobile} // Kept as formData.donor_mobile
-    onChange={handleChange}
-  />
-</div>
-<div className="form-group">
-  <label htmlFor="donor_email">Email ID:</label>
-  <input
-    type="email"
-    id="donor_email" // Changed to donor_email
-    name="donor_email" // Kept as donor_email
-    value={formData.donor_email} // Kept as formData.donor_email
-    onChange={handleChange}
-  />
-</div>
+        <div className="form-group">
+          <label htmlFor="donor_name">Name of Donor:</label>
+          <input
+            type="text"
+            id="donor_name" // Changed to donor_name
+            name="donor_name" // Kept as donor_name
+            value={formData.donor_name} // Kept as formData.donor_name
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="donor_address">Address of Donor:</label>
+          <textarea
+            id="donor_address" // Changed to donor_address
+            name="donor_address" // Kept as donor_address
+            value={formData.donor_address} // Kept as formData.donor_address
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <div className="form-group">
+          <label htmlFor="donor_mobile">Mobile No:</label>
+          <input
+            type="tel"
+            id="donor_mobile" // Changed to donor_mobile
+            name="donor_mobile" // Kept as donor_mobile
+            value={formData.donor_mobile} // Kept as formData.donor_mobile
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="donor_email">Email ID:</label>
+          <input
+            type="email"
+            id="donor_email" // Changed to donor_email
+            name="donor_email" // Kept as donor_email
+            value={formData.donor_email} // Kept as formData.donor_email
+            onChange={handleChange}
+          />
+        </div>
 
         <h3>DETAILS OF PAYMENT (APPLICATION PROCESSING FEE)</h3>
         <table>
@@ -931,19 +927,39 @@ const Page = () => {
           <h3>Details of Payment (Hostel Fee)</h3>
           <div className="form-group">
             <label htmlFor="payOrderNo">Pay Order No:</label>
-            <input type="text" id="payOrderNo" name="payOrderNo" value={formData.fee_ref_no}/>
+            <input
+              type="text"
+              id="payOrderNo"
+              name="payOrderNo"
+              value={formData.fee_ref_no}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="paymentDate">Dated:</label>
-            <input type="text" id="paymentDate" name="paymentDate" value={formData.reg_date} />
+            <input
+              type="text"
+              id="paymentDate"
+              name="paymentDate"
+              value={formData.reg_date}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="bankDetails">Name of Bank and Branch:</label>
-            <input type="text" id="bankDetails" name="bankDetails" value={formData.bank_name} />
+            <input
+              type="text"
+              id="bankDetails"
+              name="bankDetails"
+              value={formData.bank_name}
+            />
           </div>
           <div className="form-group">
             <label htmlFor="feeAmount">Amount (Rs):</label>
-            <input type="number" id="feeAmount" name="feeAmount" value={formData.fee_amount}/>
+            <input
+              type="number"
+              id="feeAmount"
+              name="feeAmount"
+              value={formData.fee_amount}
+            />
           </div>
         </div>
 

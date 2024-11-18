@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./page.css"; // Import the CSS file
 import { useRouter } from "next/navigation"; // Corrected import
+import Image from "next/image";
 
 const Page = () => {
   const [formData, setFormData] = useState({
@@ -123,14 +124,25 @@ const Page = () => {
           textAlign: "center",
         }}
       >
-        <img
-          src="/parmarthlogo.png" // Replace with your actual logo path
+        {/* <img
+          src="/parmarthlogo.png"
           alt="Parmarth Seva Samiti Logo"
           style={{
-            width: "100px", // Scales for responsiveness
+            width: "100px",
             height: "auto",
             marginRight: "15px",
           }}
+        /> */}
+        <Image
+          src="/parmarthlogo.png"
+          alt="Parmarth Seva Samiti Logo"
+          width={100}
+          height={100}
+          style={{
+            height: "auto",
+            marginRight: "15px",
+          }}
+          priority={false}
         />
         <div>
           <h2 style={{ color: "#2c3e50", fontSize: "24px", margin: "0" }}>
@@ -213,7 +225,7 @@ const Page = () => {
                 <li>
                   Photocopies of mark sheets from all attempted examinations
                 </li>
-                <li>Cancelled cheque from student's personal bank account</li>
+                <li>Cancelled cheque from student&apos;s personal bank account</li>
               </ul>
             </ul>
           </li>

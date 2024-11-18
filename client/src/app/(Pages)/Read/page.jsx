@@ -1,27 +1,29 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import './Page.css'; // Import the CSS file
+import React, { useEffect, useState } from "react";
+import "./Page.css"; // Import the CSS file
 
 function Page() {
-  const [formData, setFormData] = useState(null);  // State to hold the form data
+  const [formData, setFormData] = useState(null); // State to hold the form data
 
   // Fetch data when the component mounts
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const response = await fetch(`https://forms-backend-hanl.onrender.com/api/v1/forms/readall/`);
+        const response = await fetch(
+          `https://forms-backend-hanl.onrender.com/api/v1/forms/readall/`
+        );
         if (!response.ok) {
-          throw new Error('Failed to fetch form data');
+          throw new Error("Failed to fetch form data");
         }
         const data = await response.json();
         setFormData(data);
       } catch (error) {
-        console.error('Error fetching form:', error);
+        console.error("Error fetching form:", error);
       }
     };
 
     fetchForm();
-  }, []); 
+  }, []);
 
   return (
     <div className="table-container" role="region" tabIndex="0">
@@ -29,7 +31,8 @@ function Page() {
         <caption>Form Details</caption>
         <caption className="csscap">
           List of Forms <button className="create-btn">Create New</button>
-        </caption>
+                
+        </caption>
         <thead>
           <tr>
             <th>Form No</th>
