@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import "./Page.css"; // Import the CSS file
 import { useParams } from "next/navigation"; // Corrected import
+import Link from "next/link"; 
 
 const Page = () => {
   const params = useParams(); // Directly use the useParams hook
@@ -614,7 +615,7 @@ const Page = () => {
               />
             </td>
             <td>
-              <input
+              <input className="w-[150px]" 
                 type="text"
                 name="foundation_average"
                 value={formData.foundation_average}
@@ -652,7 +653,7 @@ const Page = () => {
               />
             </td>
             <td>
-              <input
+              <input className="w-[150px]"
                 type="text"
                 name="group1_average"
                 value={formData.group1_average}
@@ -687,7 +688,7 @@ const Page = () => {
               />
             </td>
             <td>
-              <input
+              <input className="w-[150px]"
                 type="text"
                 name="group2_average"
                 value={formData.group2_average}
@@ -964,6 +965,7 @@ const Page = () => {
         </div>
 
         <div className="form-group">
+          <Link href="/Thankyoupage">
           <button
             onClick={() => window.print()}
             className="print"
@@ -980,6 +982,7 @@ const Page = () => {
           >
             Print Application
           </button>
+              </Link>
         </div>
       </form>
     </div>
